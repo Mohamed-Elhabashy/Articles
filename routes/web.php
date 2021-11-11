@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Front\ArticleController;
+use App\Http\Controllers\Front\CategoryController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
+Route::post('/subscribe', [HomeController::class, 'subscribe'])->name('Home.subscribe');
+Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact/sendmessage', [ContactController::class, 'sendmessage'])->name('contact.sendmessage');
