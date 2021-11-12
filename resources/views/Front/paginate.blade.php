@@ -12,7 +12,7 @@
         @endif 
 
         @if($paginator->hasMorePages())    
-            <li class="page-item"><a href="{{$paginator->previousPageUrl()}}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+            <li class="page-item"><a href="{{$paginator->nextPageUrl()}}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
         @endif
     </ul>
 </nav>

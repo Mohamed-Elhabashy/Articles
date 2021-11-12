@@ -17,6 +17,9 @@ class HeaderProvider extends ServiceProvider
         View()->composer('Front.inc.Header', function ($view) {
             $view->with('categories', category::select('id', 'name')->get());
         });
+        View()->composer('Admin.inc.Header', function ($view) {
+            $view->with('categories', category::select('id', 'name')->get());
+        });
     }
 
     /**

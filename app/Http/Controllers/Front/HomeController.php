@@ -25,4 +25,9 @@ class HomeController extends Controller
         ]);
         return back();
     }
+
+    public function login()
+    {
+        return View('login');
+    }
 }
