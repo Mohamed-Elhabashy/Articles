@@ -41,7 +41,13 @@
           <a class="nav-link active" aria-current="page" href="{{Route('DCategory.index')}}">Category</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{Route('DMessage.index')}}">Messages</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{Route('DArticle.create')}}">Add Article</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{Route('DMail.index')}}">Send Mail to Subscribes</a>
         </li>
       </ul>
       <ul class="navbar-nav  mb-2 mb-lg-0 ml-auto">

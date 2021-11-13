@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\DArticleController;
 use App\Http\Controllers\Admin\DCategoryController;
+use App\Http\Controllers\Admin\DMessageController;
 use App\Http\Controllers\Admin\HomeDashboardController;
+use App\Http\Controllers\Admin\MailSubscribeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Front\ArticleController;
 use App\Http\Controllers\Front\CategoryController;
@@ -47,4 +49,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/article/update', [DArticleController::class, 'update'])->name('DArticle.update');
     Route::get('/dashboard/category/{id}/article', [DArticleController::class, 'ListArticle'])->name('DArticle.ListArticle');
     Route::get('/dashboard/article/delete/{id}', [DArticleController::class, 'delete'])->name('DArticle.delete');
+
+    Route::get('/dashboard/message', [DMessageController::class, 'index'])->name('DMessage.index');
+    Route::get('/dashboard/delete/{id}', [DMessageController::class, 'delete'])->name('DMessage.delete');
+
+    Route::get('/dashboard/sendmail', [MailSubscribeController::class, 'index'])->name('DMail.index');
+    Route::get('/dashboard/sendmail/delete/{id}', [MailSubscribeController::class, 'delete'])->name('DMail.delete');
+    Route::get('/dashboard/sendmail/subscribes', [MailSubscribeController::class, 'SendMail'])->name('DMail.send');
+    Route::post('/dashboard/sendmail/SendToSubscribes/', [MailSubscribeController::class, 'SubmitSendMail'])->name('DMail.SubmitSendMail');
 });
