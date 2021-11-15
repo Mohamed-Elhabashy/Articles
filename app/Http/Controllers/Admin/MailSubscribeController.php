@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendEmailJob;
 use App\Mail\SendSubscribe;
 use App\Models\subscribe;
 use App\Models\SubscribeMail;
@@ -38,7 +39,9 @@ class MailSubscribeController extends Controller
         ]);
         $subscribes = subscribe::get();
         foreach ($subscribes as $s) {
-            Mail::to($s['email'])->send(new SendSubscribe($details));
+            $details['email'] = $s['email'];
+            //Mail::to($s['email'])->send(new SendSubscribe($data['title'], $data['body']));
+            dispatch(new SendEmailJob($details));
         }
         return back()->with('message', 'Send Successfully');
     }

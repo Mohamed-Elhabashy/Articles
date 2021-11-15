@@ -9,16 +9,18 @@ use Illuminate\Queue\SerializesModels;
 class SendSubscribe extends Mailable
 {
     use Queueable, SerializesModels;
-    public $details;
+    public $title;
+    public $body;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($title, $body)
     {
-        $this->details = $details;
+        $this->title = $title;
+        $this->body = $body;
     }
 
     /**
